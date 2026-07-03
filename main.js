@@ -1408,6 +1408,25 @@ document.querySelectorAll('.flower-item-card').forEach(card => {
   });
 });
 
+// Mobile Burger Menu Toggle
+const menuToggle = document.getElementById('mobile-menu-toggle');
+const navLinksMenu = document.getElementById('nav-links-menu');
+
+if (menuToggle && navLinksMenu) {
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinksMenu.classList.toggle('open');
+  });
+
+  // Auto close menu when clicking any nav link
+  navLinksMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinksMenu.classList.remove('open');
+    });
+  });
+}
+
 /* --- App Startup --- */
 
 // Auto Login if previous session is active
